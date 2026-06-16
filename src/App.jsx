@@ -9,11 +9,8 @@ import Services from './components/Services';
 function App() {
   return (
     <main className="app">
-      {/* Envolvendo Navbar e Hero na mesma seção de fundo */}
       <section
-        className="heroSection"
-        style={{ backgroundImage: `url(${BG})` }}
-      >
+        className="heroSection">
         <Navbar />
         <Hero />
       </section>

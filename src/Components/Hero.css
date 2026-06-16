@@ -23,21 +23,53 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 0 0 0;
+  padding: 0;
   overflow: hidden;
   box-sizing: border-box;
+}
+
+/* ──────────────────────────────────────────────
+   SILK BACKGROUND
+────────────────────────────────────────────── */
+.hero-silk-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-silk-bg canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* ──────────────────────────────────────────────
+   DARK OVERLAY (legibilidade sobre o Silk)
+────────────────────────────────────────────── */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(5, 0, 20, 0.4) 50%,
+    rgba(5, 0, 20, 0.75) 100%
+  );
+  pointer-events: none;
 }
 
 /* ──────────────────────────────────────────────
    UPPER ROW  (headline + descrição)
 ────────────────────────────────────────────── */
 .hero-upper {
+  position: relative;
+  z-index: 5;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   gap: 0;
   margin-bottom: 0.9rem;
-  z-index: 5;
   padding: 0 4vw;
 }
 
@@ -83,17 +115,19 @@
 /* ──────────────────────────────────────────────
    WORDMARK
 ────────────────────────────────────────────── */
+.hero-wordmark {
+  position: relative;
+  z-index: 5;
+}
+
 .hero-wordmark h1 {
   font-family: 'Fraunces', serif;
   font-size: clamp(140px, 25vw, 380px);
   color: transparent;
   -webkit-text-stroke: 3px rgba(220, 200, 255, 0.9);
   width: fit-content;
-  /* Mantemos apenas o peso máximo aqui */
   font-variation-settings: "wght" 900;
-
-  /* Simula o itálico inclinando o texto em graus de forma contínua */
-  transform: skewX(-12deg); 
+  transform: skewX(-12deg);
 
   text-shadow:
     10px 10px 0px #48107c,
@@ -113,11 +147,8 @@
 }
 
 .hero-wordmark h1:hover {
-  /* O peso diminui suavemente */
   font-variation-settings: "wght" 100;
-  
-  /* O texto volta a ficar reto de forma 100% suave */
-  transform: skewX(0deg); 
+  transform: skewX(0deg);
   text-shadow: none;
 }
 

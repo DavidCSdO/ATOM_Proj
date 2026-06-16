@@ -1,10 +1,9 @@
 // src/components/Hero.jsx
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import './Hero.css';
+import Silk from './Silk';
 
 export default function Hero() {
-  const scrollBtnRef = useRef(null);
-
   const handleScrollDown = () => {
     const next = document.getElementById('services');
     if (next) {
@@ -28,6 +27,20 @@ export default function Hero() {
 
   return (
     <section className="hero">
+      {/* ── SILK BACKGROUND ── */}
+      <div className="hero-silk-bg">
+        <Silk
+          speed={4}
+          scale={1.2}
+          color="#3a0ca3"
+          noiseIntensity={1.2}
+          rotation={0.2}
+        />
+      </div>
+
+      {/* Overlay escuro para legibilidade do conteúdo */}
+      <div className="hero-overlay" />
+
       {/* ── UPPER CONTENT ── */}
       <div className="hero-upper">
         {/* Headline — esquerda */}
@@ -55,7 +68,6 @@ export default function Hero() {
       <div className="hero-wordmark">
         <h1>ATOM</h1>
       </div>
-
     </section>
   );
 }
