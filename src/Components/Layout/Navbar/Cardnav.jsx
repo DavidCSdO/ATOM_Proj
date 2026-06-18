@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { GoArrowUpRight } from 'react-icons/go';
 import GlassSurface from '../../UI/GlassSurface/GlassSurface';
-import './CardNav.css';
+import './Cardnav.css';
 
 const CardNav = ({
   items,
