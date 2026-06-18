@@ -12,3 +12,54 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+/* ── SHARED SILK WRAPPER (Hero + Services) ── */
+.hero-services-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.shared-silk-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.shared-silk-bg canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.shared-silk-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(5, 0, 20, 0.4) 50%,
+      rgba(5, 0, 20, 0.75) 100%);
+  pointer-events: none;
+}
+
+/* ── SHARED GRID DISTORTION WRAPPER (Bento + CardSwap) ── */
+.bento-cardswap-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.shared-grid-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.shared-grid-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(5, 0, 20, 0.65);
+  pointer-events: none;
+}

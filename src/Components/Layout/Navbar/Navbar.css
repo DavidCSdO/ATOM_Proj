@@ -1,13 +1,13 @@
 @font-face {
   font-family: 'Alqest';
-  src: url('../assets/fonts/Alqest-Regular.woff') format('woff');
+  src: url('../../../assets/fonts/Alqest-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Belyga';
-  src: url('../assets/fonts/Belyga.woff') format('woff');
+  src: url('../../../assets/fonts/Belyga.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }

@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Alqest';
-  src: url('../assets/fonts/Alqest-Regular.woff') format('woff');
+  src: url('../../../assets/fonts/Alqest-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -159,9 +159,10 @@
 ────────────────────────────────────────────── */
 .bento-section {
   position: relative;
+  z-index: 2;
   width: 100%;
   padding: 5rem 80px;
-  background-color: #050507;
+  background: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;

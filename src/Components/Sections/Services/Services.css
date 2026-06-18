@@ -4,32 +4,12 @@
   position: relative;
   width: 100%;
   padding: 4rem 80px;
-  background-color: #050507;
+  background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-}
-
-/* ── SILK BACKGROUND ── */
-.services-silk-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.services-silk-bg canvas {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-/* Overlay escuro para legibilidade dos cards */
-.services-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(5, 5, 7, 0.55);
-  z-index: 1;
-  pointer-events: none;
+  z-index: 2;
 }
 
 .servicesContainer {
@@ -53,11 +33,9 @@
   flex-direction: column;
   justify-content: flex-start;
   color: white;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.16),
-    rgba(255, 255, 255, 0.04)
-  );
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.04));
   border: 1px solid rgba(255, 255, 255, 0.18);
   -webkit-backdrop-filter: blur(22px) saturate(180%);
   backdrop-filter: blur(22px) saturate(180%);
@@ -70,11 +48,9 @@
 .serviceCard:hover {
   transform: translateY(-12px) scale(1.02);
   border: 1px solid rgba(255, 255, 255, 0.28);
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.22),
-    rgba(255, 255, 255, 0.06)
-  );
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.22),
+      rgba(255, 255, 255, 0.06));
 }
 
 .serviceCard h3 {
@@ -95,12 +71,10 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(255, 255, 255, 0.08) 22%,
-    transparent 45%
-  );
+  background: linear-gradient(145deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0.08) 22%,
+      transparent 45%);
   pointer-events: none;
 }
 
@@ -111,11 +85,9 @@
   height: 220px;
   top: -120px;
   right: -120px;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.22),
-    transparent 70%
-  );
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, 0.22),
+      transparent 70%);
   pointer-events: none;
 }
 
@@ -130,10 +102,12 @@
   .servicesSection {
     padding: 4rem 1.25rem;
   }
+
   .servicesContainer {
     grid-template-columns: 1fr;
     gap: 16px;
   }
+
   .serviceCard {
     min-height: 140px;
     padding: 22px 20px;

@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { GoArrowUpRight } from 'react-icons/go';
-import GlassSurface from './GlassSurface';
+import GlassSurface from '../../UI/GlassSurface/GlassSurface';
 import './CardNav.css';
 
 const CardNav = ({
@@ -147,6 +147,7 @@ const CardNav = ({
               type="button"
               className="card-nav-cta-button"
               style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
+              onClick={() => window.open('https://wa.me/5524992928110', '_blank')}
             >
               Fale conosco
             </button>
@@ -162,17 +163,22 @@ const CardNav = ({
               >
                 <div className="nav-card-label">{item.label}</div>
                 <div className="nav-card-links">
-                  {item.links?.map((lnk, i) => (
-                    <a
-                      key={`${lnk.label}-${i}`}
-                      className="nav-card-link"
-                      href={lnk.href || '#'}
-                      aria-label={lnk.ariaLabel}
-                    >
-                      <GoArrowUpRight className="nav-card-link-icon" aria-hidden="true" />
-                      {lnk.label}
-                    </a>
-                  ))}
+                  {item.links?.map((lnk, i) => {
+                    const isExternal = lnk.href?.startsWith('http');
+                    return (
+                      <a
+                        key={`${lnk.label}-${i}`}
+                        className="nav-card-link"
+                        href={lnk.href || '#'}
+                        aria-label={lnk.ariaLabel}
+                        target={isExternal ? "_blank" : undefined}
+                        rel={isExternal ? "noopener noreferrer" : undefined}
+                      >
+                        <GoArrowUpRight className="nav-card-link-icon" aria-hidden="true" />
+                        {lnk.label}
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
             ))}
@@ -180,7 +186,7 @@ const CardNav = ({
 
         </nav>
       </GlassSurface>
-    </div>
+    </div >
   );
 };
 

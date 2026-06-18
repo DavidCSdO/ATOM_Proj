@@ -1,8 +1,7 @@
 // src/components/Services.jsx
 import React from 'react';
 import './Services.css';
-import Silk from './Silk';
-import TiltedCard from './TiltedCard';
+import TiltedCard from '../../UI/TiltedCard/TiltedCard';
 
 export default function Services() {
   const services = [
@@ -30,19 +29,6 @@ export default function Services() {
 
   return (
     <section className="servicesSection" id="services">
-
-      {/* ── SILK BACKGROUND ── */}
-      <div className="services-silk-bg">
-        <Silk
-          speed={3}
-          scale={1}
-          color="#1a0a2e"
-          noiseIntensity={1}
-          rotation={0.15}
-        />
-      </div>
-      <div className="services-overlay" />
-
       <div className="servicesContainer">
         {services.map((service) => (
           <TiltedCard
