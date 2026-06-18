@@ -1,17 +1,19 @@
-/* src/index.css (ou seu CSS global) */
-
-html, body {
+body {
   margin: 0;
   padding: 0;
   width: 100vw;
   min-height: 100vh;
-  overflow-x: hidden; /* Evita a barra de rolagem horizontal */
-  background-color: #050507; /* Cor de fundo escura da ATOM */
+  overflow-x: hidden;
+  background-color: #050507;
 }
 
 #root {
-  max-width: 100%; /* Isso anula o limite padrão do Vite */
+  max-width: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }

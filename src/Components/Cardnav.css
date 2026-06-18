@@ -1,51 +1,68 @@
+/* ──────────────────────────────────────────────
+   CONTAINER — fixed, centered, soft presence
+────────────────────────────────────────────── */
 .card-nav-container {
-  position: absolute;
-  top: 0.7em;
+  position: fixed;
+  top: 1em;
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
-  max-width: 800px;
-  z-index: 99;
+  max-width: 760px;
+  z-index: 9999;
   box-sizing: border-box;
 }
 
+/* ──────────────────────────────────────────────
+   GLASS WRAPPER
+────────────────────────────────────────────── */
 .card-nav-glass {
   width: 100%;
-  /* Remove height fixo — o GlassSurface vai receber via prop */
   height: auto !important;
-  border-radius: 0.75rem;
-  /* O glass já tem box-shadow próprio, remove o do nav se quiser */
+  border-radius: 1.25rem;
 }
 
+/* ──────────────────────────────────────────────
+   NAV BODY — compact, fluid
+────────────────────────────────────────────── */
 .card-nav {
   display: block;
   width: 100%;
-  height: 60px;
+  height: 52px;
   padding: 0;
-  /* Remove background — o GlassSurface cuida disso */
   background-color: transparent !important;
   border: none;
-  border-radius: 0.75rem;
+  border-radius: 1.25rem;
   position: relative;
   overflow: hidden;
   will-change: height;
-  /* Remove box-shadow — já vem do GlassSurface */
   box-shadow: none;
+  transition: border-radius 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Quando expande, suaviza os cantos dos cards internos */
+.card-nav.open {
+  border-radius: 1.25rem;
+}
+
+/* ──────────────────────────────────────────────
+   TOP BAR — alinhamento centralizado
+────────────────────────────────────────────── */
 .card-nav-top {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 60px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 0.45rem 0.55rem 1.1rem;
+  padding: 0 0.6rem 0 1rem;
   z-index: 2;
 }
 
+/* ──────────────────────────────────────────────
+   HAMBURGER — linhas finas, animação suave
+────────────────────────────────────────────── */
 .hamburger-menu {
   height: 100%;
   display: flex;
@@ -53,32 +70,40 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  gap: 6px;
+  gap: 5px;
+  padding: 0 4px;
+  transition: opacity 0.3s ease;
 }
 
-.hamburger-menu:hover .hamburger-line {
-  opacity: 0.75;
+.hamburger-menu:hover {
+  opacity: 0.7;
 }
 
 .hamburger-line {
-  width: 30px;
-  height: 2px;
+  width: 22px;
+  height: 1.5px;
   background-color: currentColor;
+  border-radius: 2px;
   transition:
-    transform 0.25s ease,
-    opacity 0.2s ease,
-    margin 0.3s ease;
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease,
+    width 0.3s ease;
   transform-origin: 50% 50%;
 }
 
 .hamburger-menu.open .hamburger-line:first-child {
-  transform: translateY(4px) rotate(45deg);
+  transform: translateY(3.25px) rotate(45deg);
+  width: 18px;
 }
 
 .hamburger-menu.open .hamburger-line:last-child {
-  transform: translateY(-4px) rotate(-45deg);
+  transform: translateY(-3.25px) rotate(-45deg);
+  width: 18px;
 }
 
+/* ──────────────────────────────────────────────
+   LOGO — centro absoluto
+────────────────────────────────────────────── */
 .logo-container {
   display: flex;
   align-items: center;
@@ -90,41 +115,60 @@
 
 .card-nav-wordmark {
   font-family: 'Cinzel', 'Fraunces', serif;
-  font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: rgba(255, 255, 255, 0.92);
   text-transform: uppercase;
   user-select: none;
+  transition: opacity 0.3s ease;
 }
 
+/* ──────────────────────────────────────────────
+   CTA BUTTON — pill suave com hover glow
+────────────────────────────────────────────── */
 .card-nav-cta-button {
-  background-color: #111;
-  color: white;
+  background-color: rgba(124, 58, 237, 0.85);
+  color: rgba(255, 255, 255, 0.95);
   border: none;
-  border-radius: calc(0.75rem - 0.35rem);
-  padding: 0 1rem;
-  height: 100%;
+  border-radius: 999px;
+  padding: 0 1.1rem;
+  height: 34px;
+  font-size: 0.8rem;
   font-weight: 500;
+  letter-spacing: 0.02em;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  display: flex;
   align-items: center;
+  transition:
+    background-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.25s ease;
 }
 
 .card-nav-cta-button:hover {
-  background-color: #333;
+  background-color: rgba(139, 80, 255, 0.95);
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+  transform: translateY(-1px);
 }
 
+.card-nav-cta-button:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* ──────────────────────────────────────────────
+   CONTENT AREA (cards expandíveis)
+────────────────────────────────────────────── */
 .card-nav-content {
   position: absolute;
   left: 0;
   right: 0;
-  top: 60px;
+  top: 52px;
   bottom: 0;
-  padding: 0.5rem;
+  padding: 0 0.5rem 0.5rem;
   display: flex;
   align-items: flex-end;
-  gap: 12px;
+  gap: 10px;
   visibility: hidden;
   pointer-events: none;
   z-index: 1;
@@ -135,54 +179,83 @@
   pointer-events: auto;
 }
 
+/* ──────────────────────────────────────────────
+   NAV CARDS — cantos suaves, hover sutil
+────────────────────────────────────────────── */
 .nav-card {
   height: 100%;
   flex: 1 1 0;
   min-width: 0;
-  border-radius: calc(0.75rem - 0.2rem);
+  border-radius: 0.85rem;
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 12px 16px;
+  padding: 14px 16px;
   gap: 8px;
   user-select: none;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+.nav-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
 }
 
 .nav-card-label {
   font-weight: 400;
-  font-size: 22px;
-  letter-spacing: -0.5px;
+  font-size: 20px;
+  letter-spacing: -0.3px;
+  opacity: 0.9;
 }
 
 .nav-card-links {
   margin-top: auto;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
 .nav-card-link {
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   text-decoration: none;
-  transition: opacity 0.3s ease;
+  color: inherit;
+  opacity: 0.6;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 
 .nav-card-link:hover {
-  opacity: 0.75;
+  opacity: 1;
+  transform: translateX(2px);
 }
 
+.nav-card-link-icon {
+  font-size: 13px;
+  transition: transform 0.25s ease;
+}
+
+.nav-card-link:hover .nav-card-link-icon {
+  transform: translate(1px, -1px);
+}
+
+/* ──────────────────────────────────────────────
+   RESPONSIVE
+────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .card-nav-container {
-    width: 90%;
-    top: 1.2em;
+    width: 92%;
+    top: 0.8em;
   }
 
   .card-nav-top {
-    padding: 0.5rem 1rem;
+    padding: 0 0.75rem;
     justify-content: space-between;
   }
 
@@ -204,23 +277,23 @@
     flex-direction: column;
     align-items: stretch;
     gap: 8px;
-    padding: 0.5rem;
+    padding: 0 0.5rem 0.5rem;
     bottom: 0;
     justify-content: flex-start;
   }
 
   .nav-card {
     height: auto;
-    min-height: 60px;
+    min-height: 56px;
     flex: 1 1 auto;
     max-height: none;
   }
 
   .nav-card-label {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .nav-card-link {
-    font-size: 15px;
+    font-size: 14px;
   }
 }

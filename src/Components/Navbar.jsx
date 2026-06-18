@@ -1,4 +1,4 @@
-import CardNav from './CardNav';
+import CardNav from './Cardnav';
 import './Navbar.css';
 
 export default function Navbar() {

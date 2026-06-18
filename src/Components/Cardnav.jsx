@@ -9,7 +9,7 @@ const CardNav = ({
   className = '',
   ease = 'power3.out',
   menuColor,
-  buttonBgColor,    
+  buttonBgColor,
   buttonTextColor
 }) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
@@ -34,7 +34,7 @@ const CardNav = ({
         contentEl.style.position = 'static';
         contentEl.style.height = 'auto';
         contentEl.offsetHeight;
-        const topBar = 60;
+        const topBar = 52;
         const padding = 16;
         const contentHeight = contentEl.scrollHeight;
         contentEl.style.visibility = wasVisible;
@@ -50,11 +50,11 @@ const CardNav = ({
   const createTimeline = () => {
     const navEl = navRef.current;
     if (!navEl) return null;
-    gsap.set(navEl, { height: 60, overflow: 'hidden' });
-    gsap.set(cardsRef.current, { y: 50, opacity: 0 });
+    gsap.set(navEl, { height: 52, overflow: 'hidden' });
+    gsap.set(cardsRef.current, { y: 30, opacity: 0 });
     const tl = gsap.timeline({ paused: true });
-    tl.to(navEl, { height: calculateHeight, duration: 0.4, ease });
-    tl.to(cardsRef.current, { y: 0, opacity: 1, duration: 0.4, ease, stagger: 0.08 }, '-=0.1');
+    tl.to(navEl, { height: calculateHeight, duration: 0.5, ease: 'power2.inOut' });
+    tl.to(cardsRef.current, { y: 0, opacity: 1, duration: 0.45, ease, stagger: 0.06 }, '-=0.25');
     return tl;
   };
 
@@ -112,23 +112,17 @@ const CardNav = ({
     <div className={`card-nav-container ${className}`}>
       <GlassSurface
         width="100%"
-  height="100%"
-  borderRadius={12}
-  brightness={20}
-  opacity={0.4}
-  blur={8}
-  distortionScale={-20}
-  backgroundOpacity={0.08}
-  saturation={1.1}
-    displace={0.3}
-  distortionScale={-110}
-  redOffset={0}
-  greenOffset={10}
-  blueOffset={20}
-  brightness={50}
-  opacity={1.5}
-  mixBlendMode="screen"
-  className="card-nav-glass"
+        height="100%"
+        borderRadius={20}
+        brightness={18}
+        opacity={0.35}
+        blur={10}
+        distortionScale={-18}
+        backgroundOpacity={0.06}
+        saturation={1.15}
+        displace={0.25}
+        mixBlendMode="screen"
+        className="card-nav-glass"
       >
         <nav ref={navRef} className={`card-nav ${isExpanded ? 'open' : ''}`}>
 

@@ -1,20 +1,45 @@
 /* src/components/Services.css */
 
 .servicesSection {
+  position: relative;
   width: 100%;
   padding: 4rem 80px;
-  background-color: #050507; /* Continua o fundo escuro da agência */
+  background-color: #050507;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+}
+
+/* ── SILK BACKGROUND ── */
+.services-silk-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.services-silk-bg canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Overlay escuro para legibilidade dos cards */
+.services-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 5, 7, 0.55);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .servicesContainer {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   width: 100%;
-  max-width: 1200px; /* Mantém os cards alinhados de forma elegante */
+  max-width: 1200px;
 }
 
 .serviceCard {
