@@ -4,10 +4,12 @@ import './Footer.css';
 import atomLogo from '../../../assets/ATOMLOGOT.png';
 import FlowingMenu from './FlowingMenu';
 import ProfileCard from './ProfileCard';
+import ContactCard from './ContactCard';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const [activeCard, setActiveCard] = useState(null);
+  const [showContact, setShowContact] = useState(false);
 
   const menuItems = [
     {
@@ -74,23 +76,14 @@ export default function Footer() {
       link: '#footer',
       text: 'Contato',
       image: 'https://picsum.photos/600/400?random=4',
-      onClick: () => setActiveCard({
-        name: 'Fale com a ATOM',
-        title: 'cardosodavid92@gmail.com',
-        handle: 'atom_con',
-        status: 'Respondemos rápido',
-        contactText: 'Enviar Mensagem',
-        avatarUrl: 'https://picsum.photos/600/400?random=4',
-        showUserInfo: true,
-        enableTilt: true,
-        enableMobileTilt: false,
-        onContactClick: () => window.location.href = 'mailto:cardosodavid92@gmail.com',
-        behindGlowColor: 'rgba(124, 58, 237, 0.67)',
-        behindGlowEnabled: true,
-        innerGradient: 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)'
-      }),
+      onClick: () => setShowContact(true),
     },
   ];
+
+  const handleContactLinkClick = (e) => {
+    e.preventDefault();
+    setShowContact(true);
+  };
 
   return (
     <footer className="site-footer" id="footer">
@@ -124,9 +117,9 @@ export default function Footer() {
               <h4 className="footer-col-title">Serviços</h4>
               <ul>
                 <li><a href="#services">Sites de Alta Performance</a></li>
-                <li><a href="#bento">Automações & IA</a></li>
+                <li><a href="#bento">Automações &amp; IA</a></li>
                 <li><a href="#bento">Identidade Visual</a></li>
-                <li><a href="#bento">CRM & Funis</a></li>
+                <li><a href="#bento">CRM &amp; Funis</a></li>
               </ul>
             </div>
 
@@ -135,16 +128,17 @@ export default function Footer() {
               <ul>
                 <li><a href="#stepper">Como Funciona</a></li>
                 <li><a href="#card-swap">Resultados</a></li>
-                <li><a href="#footer">Contato</a></li>
+                <li><a href="#footer" onClick={handleContactLinkClick}>Contato</a></li>
               </ul>
             </div>
 
             <div className="footer-col">
               <h4 className="footer-col-title">Contato</h4>
               <ul>
-                <li><a href="mailto:contato@atom.com">contato@atom.com</a></li>
-                <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="#footer" onClick={handleContactLinkClick}>WhatsApp</a></li>
+                <li><a href="#footer" onClick={handleContactLinkClick}>Instagram</a></li>
+                <li><a href="#footer" onClick={handleContactLinkClick}>LinkedIn</a></li>
+                <li><a href="#footer" onClick={handleContactLinkClick}>E-mail</a></li>
               </ul>
             </div>
           </div>
@@ -175,6 +169,11 @@ export default function Footer() {
             <ProfileCard {...activeCard} />
           </div>
         </div>
+      )}
+
+      {/* ── Contact Card Modal ── */}
+      {showContact && (
+        <ContactCard onClose={() => setShowContact(false)} />
       )}
     </footer>
   );

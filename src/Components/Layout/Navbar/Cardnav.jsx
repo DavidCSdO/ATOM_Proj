@@ -171,8 +171,9 @@ const CardNav = ({
                         className="nav-card-link"
                         href={lnk.href || '#'}
                         aria-label={lnk.ariaLabel}
-                        target={isExternal ? "_blank" : undefined}
-                        rel={isExternal ? "noopener noreferrer" : undefined}
+                        target={isExternal && !lnk.onClick ? "_blank" : undefined}
+                        rel={isExternal && !lnk.onClick ? "noopener noreferrer" : undefined}
+                        onClick={lnk.onClick ? (e) => { e.preventDefault(); lnk.onClick(); } : undefined}
                       >
                         <GoArrowUpRight className="nav-card-link-icon" aria-hidden="true" />
                         {lnk.label}

@@ -1,7 +1,13 @@
+import { useState } from 'react';
 import CardNav from './Cardnav';
+import ContactCard from '../Footer/ContactCard';
 import './Navbar.css';
 
 export default function Navbar() {
+  const [showContact, setShowContact] = useState(false);
+
+  const openContact = () => setShowContact(true);
+
   const items = [
     {
       label: 'Serviços',
@@ -27,21 +33,26 @@ export default function Navbar() {
       bgColor: '#1B1722',
       textColor: '#fff',
       links: [
-        { label: 'WhatsApp', ariaLabel: 'Fale pelo WhatsApp', href: 'https://wa.me/5524992928110' },
-        { label: 'E-mail', ariaLabel: 'Enviar e-mail', href: 'mailto:cardosodavid92@gmail.com' },
-        { label: 'Instagram', ariaLabel: 'Instagram', href: 'https://www.instagram.com/atom_con/' },
+        { label: 'WhatsApp', ariaLabel: 'Fale pelo WhatsApp', href: '#', onClick: openContact },
+        { label: 'E-mail', ariaLabel: 'Enviar e-mail', href: '#', onClick: openContact },
+        { label: 'Instagram', ariaLabel: 'Instagram', href: '#', onClick: openContact },
       ],
     },
   ];
 
   return (
-    <CardNav
-      items={items}
-      baseColor="transparent"
-      menuColor="#fff"
-      buttonBgColor="#7c3aed"
-      buttonTextColor="#fff"
-      ease="power3.out"
-    />
+    <>
+      <CardNav
+        items={items}
+        baseColor="transparent"
+        menuColor="#fff"
+        buttonBgColor="#7c3aed"
+        buttonTextColor="#fff"
+        ease="power3.out"
+      />
+      {showContact && (
+        <ContactCard onClose={() => setShowContact(false)} />
+      )}
+    </>
   );
 }
