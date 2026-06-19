@@ -1,19 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
 
-@font-face {
-  src: url("https://www.axis-praxis.org/fonts/webfonts/MetaVariableDemo-Set.woff2") format("woff2");
-  font-family: "Meta";
-  font-style: normal;
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: 'Alqest';
-  src: url('../../../assets/fonts/Alqest-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* ──────────────────────────────────────────────
    HERO SECTION
 ────────────────────────────────────────────── */

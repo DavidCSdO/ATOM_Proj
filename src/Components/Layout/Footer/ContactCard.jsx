@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   FaWhatsapp,
   FaInstagram,
@@ -89,8 +88,7 @@ export default function ContactCard({ onClose }) {
         <div className="cc-links">
           {CONTACT_LINKS.map((link) => {
             const IconComp = link.icon;
-            const isExternal =
-              link.href.startsWith('http') || link.href.startsWith('mailto') || link.href.startsWith('tel');
+
             return (
               <a
                 key={link.id}

@@ -1,31 +1,20 @@
 // src/components/Hero.jsx
-import React, { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 import './Hero.css';
 
 export default function Hero() {
-  const handleScrollDown = () => {
-    const next = document.getElementById('services');
-    if (next) {
-      next.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-    }
-  };
+  const heroRef = useRef(null);
 
   /* Fade-in on mount */
   useEffect(() => {
-    const el = document.querySelector('.hero');
-    if (el) {
-      el.style.opacity = '0';
-      requestAnimationFrame(() => {
-        el.style.transition = 'opacity 1s ease';
-        el.style.opacity = '1';
-      });
+    if (heroRef.current) {
+      gsap.fromTo(heroRef.current, { opacity: 0 }, { opacity: 1, duration: 1, ease: 'power2.out' });
     }
   }, []);
 
   return (
-    <section className="hero">
+    <section className="hero" ref={heroRef}>
       {/* ── UPPER CONTENT ── */}
       <div className="hero-upper">
         {/* Headline — esquerda */}

@@ -1,5 +1,4 @@
 // src/components/CardSwapSection.jsx
-import React from 'react';
 import CardSwap, { Card } from './CardSwap';
 import './CardSwapSection.css';
 

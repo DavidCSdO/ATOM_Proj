@@ -1,10 +1,8 @@
 // src/components/StepperSection.jsx
-import React, { useState } from 'react';
 import Stepper, { Step } from './Stepper';
 import './StepperSection.css';
 
 export default function StepperSection() {
-  const [name, setName] = useState('');
 
   return (
     <section className="stepper-section" id="stepper">
@@ -18,8 +16,8 @@ export default function StepperSection() {
       <div className="stepper-wrapper">
         <Stepper
           initialStep={1}
-          onStepChange={(step) => console.log('Step:', step)}
-          onFinalStepCompleted={() => console.log('All steps completed!')}
+          onStepChange={() => {}}
+          onFinalStepCompleted={() => {}}
           backButtonText="Anterior"
           nextButtonText="Próximo"
         >

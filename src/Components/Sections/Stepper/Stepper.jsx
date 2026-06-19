@@ -106,12 +106,18 @@ export default function Stepper({
                                 <button
                                     onClick={handleBack}
                                     className={`back-button ${currentStep === 1 ? 'inactive' : ''}`}
+                                    aria-label="Voltar para o passo anterior"
                                     {...backButtonProps}
                                 >
                                     {backButtonText}
                                 </button>
                             )}
-                            <button onClick={isLastStep ? handleComplete : handleNext} className="next-button" {...nextButtonProps}>
+                            <button
+                                onClick={isLastStep ? handleComplete : handleNext}
+                                className="next-button"
+                                aria-label={isLastStep ? 'Concluir todos os passos' : 'Ir para o próximo passo'}
+                                {...nextButtonProps}
+                            >
                                 {isLastStep ? 'Complete' : nextButtonText}
                             </button>
                         </div>

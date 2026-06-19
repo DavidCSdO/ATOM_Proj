@@ -1,5 +1,5 @@
 // src/components/Footer.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Footer.css';
 import atomLogo from '../../../assets/ATOMLOGOT.png';
 import FlowingMenu from './FlowingMenu';
@@ -26,7 +26,7 @@ export default function Footer() {
         showUserInfo: true,
         enableTilt: true,
         enableMobileTilt: false,
-        onContactClick: () => console.log('Contact clicked'),
+        onContactClick: () => {},
         behindGlowColor: 'rgba(124, 58, 237, 0.67)',
         behindGlowEnabled: true,
         innerGradient: 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)'
@@ -46,7 +46,7 @@ export default function Footer() {
         showUserInfo: true,
         enableTilt: true,
         enableMobileTilt: false,
-        onContactClick: () => console.log('Contact clicked'),
+        onContactClick: () => {},
         behindGlowColor: 'rgba(124, 58, 237, 0.67)',
         behindGlowEnabled: true,
         innerGradient: 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)'
@@ -66,7 +66,7 @@ export default function Footer() {
         showUserInfo: true,
         enableTilt: true,
         enableMobileTilt: false,
-        onContactClick: () => console.log('Contact clicked'),
+        onContactClick: () => {},
         behindGlowColor: 'rgba(124, 58, 237, 0.67)',
         behindGlowEnabled: true,
         innerGradient: 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)'

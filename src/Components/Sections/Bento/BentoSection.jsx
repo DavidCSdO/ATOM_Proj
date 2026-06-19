@@ -1,5 +1,4 @@
 // src/components/BentoSection.jsx
-import React from 'react';
 import MagicBento from './MagicBento';
 import './MagicBento.css';
 
